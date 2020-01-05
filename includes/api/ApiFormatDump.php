@@ -2,9 +2,9 @@
 /**
  * API for MediaWiki 1.8+
  *
- * Created on Feb 2, 2009
+ * Created on August 8, 2010
  *
- * Copyright © 2009 Roan Kattouw <Firstname>.<Lastname>@home.nl
+ * Copyright © 2010 Soxred93
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,46 +30,32 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 /**
- * Formatter that spits out anything you like with any desired MIME type
+ * API PHP's var_dump() output formatter
  * @ingroup API
  */
-class ApiFormatRaw extends ApiFormatBase {
+class ApiFormatDump extends ApiFormatBase {
 
-	/**
-	 * Constructor
-	 * @param $main ApiMain object
-	 * @param $errorFallback Formatter object to fall back on for errors
-	 */
-	public function __construct( $main, $errorFallback ) {
-		parent::__construct( $main, 'raw' );
-		$this->mErrorFallback = $errorFallback;
+	public function __construct( $main, $format ) {
+		parent::__construct( $main, $format );
 	}
 
 	public function getMimeType() {
-		$data = $this->getResultData();
-
-		if ( isset( $data['error'] ) ) {
-			return $this->mErrorFallback->getMimeType();
-		}
-
-		if ( !isset( $data['mime'] ) ) {
-			ApiBase::dieDebug( __METHOD__, 'No MIME type set for raw formatter' );
-		}
-
-		return $data['mime'];
+		// This looks like it should be text/plain, but IE7 is so
+		// brain-damaged it tries to parse text/plain as HTML if it
+		// contains HTML tags. Using MIME text/text works around this bug
+		return 'text/text';
 	}
 
 	public function execute() {
-		$data = $this->getResultData();
-		if ( isset( $data['error'] ) ) {
-			$this->mErrorFallback->execute();
-			return;
-		}
+		ob_start();
+		var_dump( $this->getResultData() );
+		$result = ob_get_contents();
+		ob_end_clean();
+		$this->printText( $result );
+	}
 
-		if ( !isset( $data['text'] ) ) {
-			ApiBase::dieDebug( __METHOD__, 'No text given for raw formatter' );
-		}
-		$this->printText( $data['text'] );
+	public function getDescription() {
+		return 'Output data in PHP\'s var_dump() format' . parent::getDescription();
 	}
 
 	public function getVersion() {
