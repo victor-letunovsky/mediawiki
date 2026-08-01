@@ -47,16 +47,43 @@ function wfCopyToClipboardInit( Parser $parser ) {
 }
 
 function wfAddCopyToClipboardTag( $input, array $args, Parser $parser, PPFrame $frame ) {
-	$escapedInput = htmlspecialchars( $input, ENT_QUOTES, 'UTF-8' );
-	$encodedText = json_encode( $input );
-
-	if ( isset( $args['show'] ) && $args['show'] == true ) {
-		$html = $escapedInput . ' ';
-	} else {
-		$html = '';
+	global $copyToClipboardScriptFirst;
+	if ( !isset( $copyToClipboardScriptFirst ) ) {
+		$copyToClipboardScriptFirst = true;
 	}
 
-	$html .= '<button type="button" class="copy-to-clipboard-btn" onclick="navigator.clipboard.writeText(' . htmlspecialchars( $encodedText, ENT_QUOTES, 'UTF-8' ) . ')">Copy</button>';
+	$html = '';
+	if ( $copyToClipboardScriptFirst ) {
+		$html .= "<script>\n" .
+			"function copyToClipboard(text) {\n" .
+			"    if (navigator.clipboard && navigator.clipboard.writeText) {\n" .
+			"        navigator.clipboard.writeText(text);\n" .
+			"    } else {\n" .
+			"        var ta = document.createElement('textarea');\n" .
+			"        ta.value = text;\n" .
+			"        document.body.appendChild(ta);\n" .
+			"        ta.select();\n" .
+			"        try {\n" .
+			"            document.execCommand('copy');\n" .
+			"        } catch (err) {\n" .
+			"            console.error('Failed to copy text', err);\n" .
+			"        }\n" .
+			"        document.body.removeChild(ta);\n" .
+			"    }\n" .
+			"}\n" .
+			"</script>\n";
+		$copyToClipboardScriptFirst = false;
+	}
+
+	$escapedInput = htmlspecialchars( $input, ENT_QUOTES, 'UTF-8' );
+	$jsonInput = json_encode( $input );
+	$escapedJson = htmlspecialchars( $jsonInput, ENT_QUOTES, 'UTF-8' );
+
+	if ( isset( $args['show'] ) && $args['show'] == true ) {
+		$html .= $escapedInput . ' ';
+	}
+
+	$html .= '<button type="button" class="copy-to-clipboard-btn" data-clipboard-json="' . $escapedJson . '" onclick="copyToClipboard(JSON.parse(this.getAttribute(\'data-clipboard-json\')))">Copy</button>';
 
 	return $html;
 }

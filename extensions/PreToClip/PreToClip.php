@@ -13,15 +13,15 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 //
 //$ZeroClipboardFilesDir = dirname($_SERVER["SCRIPT_NAME"]).'/extensions/PreToClip/ZeroClipboard';
 //
-$wgClpbImg = "$wgScriptPath/extensions/PreToClip/clpb.png";
+$wgClpbImg = $GLOBALS['wgScriptPath'] . '/extensions/PreToClip/clpb.png';
 $nlpObj = new PreToClip;
 $clpbTagIdx = 0;
 $clpbTagFirst = true;
 $clpbTagIdxFirst = true;
 $clpbStyleFirst = true;
 $wgHooks['BeforePageDisplay'][] = array ($nlpObj,'hPreToClip');
-$co2cliScript = "<script src='$wgScriptPath/extensions/PreToClip/co2cliScript.js'></script>";
-$cp2clpbStyle = "<link rel='stylesheet' href='$wgScriptPath/extensions/PreToClip/cp2clpb.css'/>";
+$co2cliScript = "<script src='" . $GLOBALS['wgScriptPath'] . "/extensions/PreToClip/co2cliScript.js'></script>";
+$cp2clpbStyle = "<link rel='stylesheet' href='" . $GLOBALS['wgScriptPath'] . "/extensions/PreToClip/cp2clpb.css'/>";
 
 class PreToClip {
 	var $completed;	
@@ -35,9 +35,6 @@ class PreToClip {
 		global $action;
 		if ($action != 'view' and $action != '')
 			return true;
-		global $wgRequest;
-		// global $ZeroClipboardFilesDir;
-		global $GLOBALS;
 		$mBodytext = $out->mBodytext;
 		$inhaltende = "";
 		$isPre = strpos($mBodytext, "<pre>") !== false;
@@ -112,7 +109,6 @@ function wfAddClpbTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 			}
 			$clpbTagFirst = false;
 		}
-		//$html .= '<input type="image" onclick="cp2clpb(\'' . $vInput . '\')" src="' . $wgClpbImg . '">';
 		$html .= '<button onclick="cp2clpb(\'' . $vInput . '\')" class="cp2clpb"></button>';
 	}
 	return $html;
