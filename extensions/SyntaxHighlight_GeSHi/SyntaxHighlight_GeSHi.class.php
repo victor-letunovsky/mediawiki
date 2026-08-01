@@ -85,10 +85,33 @@ class SyntaxHighlight_GeSHi {
 			$out = str_replace( "\n", '', $out );
 		// Register CSS
 		$parser->mOutput->addHeadItem( self::buildHeadItem( $geshi ), "source-{$lang}" );
+
+		static $geshiTagIdx = 0;
+		$geshiId = 'geshiid' . $geshiTagIdx++;
+
+		static $geshiScriptFirst = true;
+		$scriptHtml = '';
+		if ( $geshiScriptFirst ) {
+			$scriptHtml = "<script>\n" .
+				"if (typeof co2cli === 'undefined') {\n" .
+				"    function co2cli(cId) {\n" .
+				"        var el = document.getElementById(cId);\n" .
+				"        if (el) {\n" .
+				"            var text = el.innerText || el.textContent;\n" .
+				"            navigator.clipboard.writeText(text);\n" .
+				"        }\n" .
+				"    }\n" .
+				"}\n" .
+				"</script>\n";
+			$geshiScriptFirst = false;
+		}
+
+		$buttonHtml = "<div style=\"text-align:right; margin-bottom:-35px;\"><button id=\"geshi-cp-btn" . $geshiTagIdx . "\" onclick=\"co2cli('" . $geshiId . "')\">cp</button></div>\n";
+
 		if ( $enclose === GESHI_HEADER_NONE ) {
-			$out = '<span class="mw-geshi '.$lang.' source-'.$lang.'"> '.$out . '</span>';
+			$out = $scriptHtml . $buttonHtml . '<span id="' . $geshiId . '" class="mw-geshi '.$lang.' source-'.$lang.'"> '.$out . '</span>';
 		} else {
-			$out = '<div dir="ltr" class="mw-geshi" style="text-align: left;">' . $out . '</div>';
+			$out = $scriptHtml . $buttonHtml . '<div id="' . $geshiId . '" dir="ltr" class="mw-geshi" style="text-align: left;">' . $out . '</div>';
 		}
 		wfProfileOut( __METHOD__ );
 		return $out;
