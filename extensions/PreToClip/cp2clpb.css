@@ -1,0 +1,11 @@
+.cp2clpb {
+  padding: 12px 4px 4px 12px;
+  border: none;
+  background-image: url('clpb1.png');
+}
+.cp2clpb:hover {
+  background-image: url('clpb2.png');
+}
+.cp2clpb:active {
+  background-image: url('clpb3.png');
+}

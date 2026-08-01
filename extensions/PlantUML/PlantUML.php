@@ -136,7 +136,9 @@ if (!$usecloud) {
         $plantumlJar = dirname(__FILE__).'/'.$plantumlJar;
     }
     if (!is_file($plantumlJar)) {
-        $usecloud = true;
+	    echo( "Viktor Letunovskyi 2020-10-09: We must not use Cloud." );
+	    die( -1 );
+        // $usecloud = true;
     }
 }
 // Cloud version does not support SVG images (yet)

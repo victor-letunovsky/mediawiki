@@ -1,5 +1,5 @@
 <?php
-/** Simplified Gan script (赣语(简体))
+/** Simplified Gan script (‪赣语(简体)‬)
  *
  * See MessagesQqq.php for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
@@ -7,8 +7,12 @@
  * @ingroup Language
  * @file
  *
+ * @author Kaganer
  * @author Liangent
+ * @author Lokal Profil
+ * @author PhiLiP
  * @author Philip <philip.npc@gmail.com>
+ * @author Reedy
  * @author Symane
  * @author Urhixidur
  * @author Vipuser
@@ -43,8 +47,7 @@ $messages = array(
 'tog-editsection'             => '可以用[编写]链接来编写个别段落',
 'tog-editsectiononrightclick' => '可以按右键来编写只把子段落（JavaScript）',
 'tog-showtoc'                 => '超过三只标题就显到目录',
-'tog-rememberpassword'        => '到个只电脑记到偶𠮶密码',
-'tog-editwidth'               => '加阔修改栏到完个萤幕',
+'tog-rememberpassword'        => '到个只电脑记到我𠮶密码（至多$1{{PLURAL:$1|日|日}}）',
 'tog-watchcreations'          => '拿偶开嘞𠮶页面加到偶𠮶监视列表',
 'tog-watchdefault'            => '拿偶改嘞𠮶页面加到偶𠮶监视列表',
 'tog-watchmoves'              => '拿偶动嘞𠮶页面加到偶𠮶监视列表',
@@ -58,7 +61,7 @@ $messages = array(
 'tog-enotifminoredits'        => '有细𠮶改动都要发email到偶',
 'tog-enotifrevealaddr'        => '通知邮件可话到人听偶𠮶email地址',
 'tog-shownumberswatching'     => '显示有几多人监视',
-'tog-oldsig'                  => '原有签名𠮶预览：',
+'tog-oldsig'                  => '现有𠮶签名：',
 'tog-fancysig'                => '搦签名以维基字对待（冇自动连结）',
 'tog-externaleditor'          => '默认用外部编辑器（专家用𠮶功能，要到倷𠮶电脑上头特别𠮶设置一下）',
 'tog-externaldiff'            => '默认用外部差异比较器（专家用𠮶功能，要到倷𠮶电脑上头特别𠮶设置一下）',
@@ -190,31 +193,20 @@ $messages = array(
 'faqpage'        => 'Project:问得蛮多𠮶问题',
 
 # Vector skin
-'vector-action-addsection'   => '添主题',
-'vector-action-delete'       => '删吥',
-'vector-action-move'         => '移吥',
-'vector-action-protect'      => '护到',
-'vector-action-undelete'     => '望下删吥𠮶页面',
-'vector-action-unprotect'    => '解除保护',
-'vector-namespace-category'  => '分类',
-'vector-namespace-help'      => '帮助页',
-'vector-namespace-image'     => '档案',
-'vector-namespace-main'      => '页面',
-'vector-namespace-media'     => '媒体页',
-'vector-namespace-mediawiki' => '介面',
-'vector-namespace-project'   => '计划页',
-'vector-namespace-special'   => '特别页',
-'vector-namespace-talk'      => '谈詑',
-'vector-namespace-template'  => '模板',
-'vector-namespace-user'      => '用户页',
-'vector-view-create'         => '创建',
-'vector-view-edit'           => '编辑',
-'vector-view-history'        => '望下历史',
-'vector-view-view'           => '读',
-'vector-view-viewsource'     => '望下原始码',
-'actions'                    => '动作',
-'namespaces'                 => '空间名',
-'variants'                   => '变换',
+'vector-action-addsection' => '添主题',
+'vector-action-delete'     => '删吥',
+'vector-action-move'       => '移吥',
+'vector-action-protect'    => '护到',
+'vector-action-undelete'   => '望下删吥𠮶页面',
+'vector-action-unprotect'  => '解除保护',
+'vector-view-create'       => '创建',
+'vector-view-edit'         => '编辑',
+'vector-view-history'      => '望下历史',
+'vector-view-view'         => '读',
+'vector-view-viewsource'   => '望下原始码',
+'actions'                  => '动作',
+'namespaces'               => '空间名',
+'variants'                 => '变换',
 
 'errorpagetitle'    => '错误',
 'returnto'          => '回到$1。',
@@ -241,8 +233,8 @@ $messages = array(
 'protect'           => '保护',
 'protect_change'    => '修改',
 'protectthispage'   => '保护个页',
-'unprotect'         => '解除保护',
-'unprotectthispage' => '解除保护个页',
+'unprotect'         => '改变保护',
+'unprotectthispage' => '改吥个页𠮶保护',
 'newpage'           => '新文章',
 'talkpage'          => '谈吖个页',
 'talkpagelinktext'  => '谈詑',
@@ -298,7 +290,7 @@ $1',
 
 'badaccess'        => '权限错误',
 'badaccess-group0' => '倷𠮶要求冇拖批准。',
-'badaccess-groups' => '倷𠮶要求单$1𠮶用户才扤得正。',
+'badaccess-groups' => '汝要求𠮶操作单就$1𠮶用户（{{PLURAL:$2|组|组员}}）才扤得正。',
 
 'versionrequired'     => '需要$1版𠮶mediawiki',
 'versionrequiredtext' => '$1版𠮶mediawiki才用得正个页。参看[[Special:Version|版本页]]。',
@@ -388,7 +380,7 @@ MySQL回到错误“$3: $4”。',
 'unexpected'           => '伓正常值： "$1"="$2"。',
 'formerror'            => '错误：交伓正表格',
 'badarticleerror'      => '个只操作到个页用伓正。',
-'cannotdelete'         => '拣正𠮶页面或图像删伓正。（佢可能拖人家删吥嘞。）',
+'cannotdelete'         => '拣正𠮶页面或图像“$1”删伓正。（佢可能拕人家删吥哩。）',
 'badtitle'             => '错误𠮶标题',
 'badtitletext'         => '所要求𠮶页面标题伓正确，伓存在，跨语言或跨wiki链接。标题错误，佢可能有只或好几只伓合𠮶标题字符。',
 'perfcached'           => '底下系缓存资料，可能伓系最新𠮶。',
@@ -414,22 +406,23 @@ $2',
 'virus-unknownscanner' => '不晓得𠮶防病毒:',
 
 # Login and logout pages
-'logouttext'                 => "'''倷退出正嘞。'''
+'logouttext'                 => "'''汝退出正哩。'''
 
-倷可以接到匿名使用{{SITENAME}}，或重登入过，只把子页面可能会接到话倷系登入状态，除非系倷删吥浏览器缓存。",
+接到汝得匿名使用{{SITENAME}}，或[[Special:UserLogin|登入过]]。除非汝删吥浏览器缓存，只把子页面可能会接到话汝系登入状态。",
 'welcomecreation'            => '== 欢迎, $1! ==
 
-建正嘞倷𠮶帐户，莫忘吥设置{{SITENAME}}𠮶个人参数。',
+建正哩汝𠮶帐户，莫𫍧记设置 [[Special:Preferences|{{SITENAME}}𠮶个人参数]]。',
 'yourname'                   => '用户名：',
 'yourpassword'               => '密码：',
 'yourpasswordagain'          => '输过道密码：',
-'remembermypassword'         => '让电脑记到密码',
+'remembermypassword'         => '记定我𠮶密码（顶多$1{{PLURAL:$1|日|日}}）',
 'yourdomainname'             => '倷𠮶域名：',
 'externaldberror'            => '外部验证数据库出错，或倷更新伓正倷𠮶外部帐户。',
 'login'                      => '登入',
 'nav-login-createaccount'    => '登入/新开只帐户',
 'loginprompt'                => '要开到cookies才登入得正{{SITENAME}}。',
 'userlogin'                  => '登入/新开只帐户',
+'userloginnocreate'          => '登入',
 'logout'                     => '退出',
 'userlogout'                 => '退出',
 'notloggedin'                => '冇登入',
@@ -439,8 +432,9 @@ $2',
 'gotaccount'                 => "有喽帐户？ '''$1'''.",
 'gotaccountlink'             => '登入',
 'createaccountmail'          => '通过email',
+'createaccountreason'        => '原因:',
 'badretype'                  => '倷输𠮶密码伓合。',
-'userexists'                 => '倷输𠮶用户名系人家𠮶，选过只喽！',
+'userexists'                 => '汝输𠮶用户名系人家𠮶，拣过只啰！',
 'loginerror'                 => '登入错误',
 'nocookiesnew'               => '帐户扤正嘞！测到倷关吥嘞Cookies，麻烦倷开到佢登入过。',
 'nocookieslogin'             => '个首要用 Cookies 登入，测到倷关吥嘞Cookies，麻烦倷开到佢登入过。',
@@ -452,10 +446,10 @@ $2',
 'nouserspecified'            => '倷要指正一只用户名。',
 'wrongpassword'              => '倷输𠮶密码错误伓对，请试过吖啰。',
 'wrongpasswordempty'         => '倷冇输入密码，请试过吖啰。',
-'passwordtooshort'           => '倷𠮶密码伓对或太短嘞，佢最少要有$1只字符，哈要同用户名伓一样。',
+'passwordtooshort'           => '汝𠮶密码伓佮或短伤哩，佢只少要有$1只字符，哈要同用户名伓共样。',
 'mailmypassword'             => '拿新密码寄到偶',
 'passwordremindertitle'      => '{{SITENAME}}𠮶密码提醒',
-'passwordremindertext'       => '有人（可能系倷，IP地址$1）要偶俚拿新𠮶{{SITENAME}} （$4） 𠮶登入密码寄到倷。眼下用户"$2"𠮶密码系"$3"。请仰上就登入同到换吥密码。要系别𠮶人发𠮶请求，或者倷寻回嘞倷𠮶密码，伓想改佢，倷可以嫑搭个只消息，继续用旧密码。',
+'passwordremindertext'       => '有人（可能系汝，IP位址$1）要我俚搦新𠮶{{SITENAME}} （$4） 𠮶登入密码寄到汝。眼下用户"$2"𠮶密码系"$3"。请仰上就登入同到换吥密码。要系别𠮶人发𠮶请求，或者倷寻回嘞倷𠮶密码，伓想改佢，倷可以嫑搭个只消息，接得用旧密码。临时密码{{PLURAL:$5|一日|$5日}}之内会失效。',
 'noemail'                    => '冇有用户"$1"𠮶email地址。',
 'passwordsent'               => '新𠮶密码已经寄到用户"$1"𠮶email去喽。收到后请再登入过。',
 'blocked-mailpassword'       => '倷𠮶IP地址拖封到嘞。用伓正密码复原功能以防乱用。',
@@ -477,15 +471,17 @@ $2',
 'loginlanguagelabel'         => '语言: $1',
 
 # Password reset dialog
-'resetpass'           => '设过帐户密码',
-'resetpass_announce'  => '倷系用到临时email𠮶代码登入𠮶。要登正入，倷要到个首设定只新密码:',
-'resetpass_header'    => '设过密码',
-'oldpassword'         => '老密码：',
-'newpassword'         => '新密码：',
-'retypenew'           => '确认密码:',
-'resetpass_submit'    => '设定密码同到登入',
-'resetpass_success'   => '倷𠮶密码改正喽！正帮倷登入...',
-'resetpass_forbidden' => '到{{SITENAME}}上改伓正密码',
+'resetpass'                 => '设过帐户密码',
+'resetpass_announce'        => '倷系用到临时email𠮶代码登入𠮶。要登正入，倷要到个首设定只新密码:',
+'resetpass_header'          => '设过密码',
+'oldpassword'               => '老密码：',
+'newpassword'               => '新密码：',
+'retypenew'                 => '确认密码:',
+'resetpass_submit'          => '设定密码同到登入',
+'resetpass_success'         => '倷𠮶密码改正喽！正帮倷登入...',
+'resetpass_forbidden'       => '到{{SITENAME}}上改伓正密码',
+'resetpass-submit-loggedin' => '设过帐户密码',
+'resetpass-submit-cancel'   => '取消',
 
 # Edit page toolbar
 'bold_sample'     => '粗体字',
@@ -520,7 +516,7 @@ $2',
 'anoneditwarning'                  => "'''警告:'''倷哈冇登入，个页𠮶编写历史会记到倷𠮶IP。",
 'missingsummary'                   => "'''提示:''' 倷冇提供编写摘要。要系倷再按系保存𠮶话，倷保存𠮶编辑就会冇编辑摘要。",
 'missingcommenttext'               => '请到底下评论。',
-'missingcommentheader'             => "'''提示:''' 倷𠮶评论冇提供标题。要系倷再按系保存𠮶话，倷保存𠮶编辑就会冇标题。",
+'missingcommentheader'             => "''提示:''' 汝𠮶评论冇提供标题。若系汝捺过到{{int:savearticle}}𠮶话，汝保存𠮶编辑就会冇标题。",
 'summary-preview'                  => '摘要预览:',
 'subject-preview'                  => '主题/头条预览:',
 'blockedtitle'                     => '用户封到嘞',
@@ -553,33 +549,37 @@ $2',
 'whitelistedittext'                => '起先倷要$1才编得正个页。',
 'confirmedittext'                  => '确认嘞email才能编写个页。麻烦用[[Special:Preferences|参数设置]]设置同确认倷𠮶email。',
 'nosuchsectiontitle'               => '冇个只段落',
-'nosuchsectiontext'                => '倷尝试编写𠮶段落伓存在。',
+'nosuchsectiontext'                => '汝试得编写𠮶段落伓存在。',
 'loginreqtitle'                    => '需要登入',
 'loginreqlink'                     => '登入',
 'loginreqpagetext'                 => '倷要$1才眵得正别𠮶页面。',
 'accmailtitle'                     => '密码寄出嘞',
 'accmailtext'                      => "'$1'𠮶密码发到$2嘞。",
 'newarticle'                       => '（新）',
-'newarticletext'                   => '倷连到𠮶页面伓存在。要新开个只页面，倷能到下底𠮶方框编写内容（细节请望[[Help:说明|说明]]）。要系倷伓系特试来到个首，按吖浏览器𠮶“返回”即可。',
+'newarticletext'                   => '个系只冇拕建立𠮶页面。
+要新开个只页面，请到下首𠮶方框里头编写内容（望吖[[{{MediaWiki:Helppage}}|说明]]𠮶细节）。
+若系汝伓系特事来到个首，捺吖浏览器𠮶「去还」键即得去还。',
 'anontalkpagetext'                 => "---- ''个系匿名用户𠮶讨论页，话伓定佢哈冇开只帐户。别人单用得正IP地址同佢联系。个只IP地址可能有好几只用户共用。如果倷系匿名用户，觉得个页𠮶内容同倷冇关，欢迎去[[Special:UserLogin|开只新帐户或登入]]，省得同别𠮶匿名用户扤混来。''",
 'noarticletext'                    => '眼下个页哈冇内容，倷可以到别𠮶页面[[Special:Search/{{PAGENAME}}|寻吖个页𠮶标题]]，
-<span class="plainlinks">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} 寻吖有关日志]或[{{fullurl:{{FULLPAGENAME}}|action=edit}} 编写个页]。',
+<span class="plainlinks">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} 寻吖有关日志]或[{{fullurl:{{FULLPAGENAME}}|action=edit}} 编写个页]</span>。',
+'noarticletext-nopermission'       => '眼下个页哈冇内容，汝可以到别𠮶页面[[Special:Search/{{PAGENAME}}|寻吖个页𠮶标题]]，
+<span class="plainlinks">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} 寻吖有关日志]或[{{fullurl:{{FULLPAGENAME}}|action=edit}} 编写个页]</span>。',
 'clearyourcache'                   => "'''注意:''' 保存之后, 倷要清吥浏览器𠮶缓存才眵得正改𠮶内容。 '''Mozilla / Firefox / Safari:''' 按到 ''Shift'' 接到按''刷新''（或按吖''Ctrl-Shift-R''，到苹果Mac上按''Cmd-Shift-R''）；'''IE:''' 按到 ''Ctrl''接到按''刷新''，或按吖''Ctrl-F5''；'''Konqueror:''' 单只要按 ''刷新''；'''Opera:''' 用户要到 ''工具-设置'' 完全𠮶清除缓存。",
 'usercssyoucanpreview'             => "'''提示:''' 存到前请用'望吖起'来测吖倷𠮶新CSS 。",
 'userjsyoucanpreview'              => "'''提示:''' 存到前请用'望吖起'来测吖倷𠮶新JS 。",
 'usercsspreview'                   => "'''注意倷单系到预览倷个人𠮶 CSS，内容哈冇保存！'''",
 'userjspreview'                    => "'''注意倷单系到测试／预览倷个人𠮶 JavaScript，内容哈冇保存！'''",
-'userinvalidcssjstitle'            => "'''警告:''' 冇\"\$1\"𠮶皮肤。请记到自定义𠮶 .css 同 .js 页要用小写。就话，{{ns:user}}:Foo/monobook.css 伓等同 {{ns:user}}:Foo/Monobook.css。",
+'userinvalidcssjstitle'            => "'''警告:''' 冇\"\$1\"𠮶皮肤。请记到自定义𠮶 .css 同 .js 页要用小写。就话，{{ns:user}}:Foo/vector.css 伓等同 {{ns:user}}:Foo/Vector.css。",
 'updated'                          => '（更新正喽）',
 'note'                             => "'''注意:'''",
 'previewnote'                      => "'''请记到个光系预览，内容哈冇保存！'''",
 'previewconflict'                  => '个只预览系上首文字编辑区𠮶内容。倷选择保存𠮶话佢才会保存到。',
 'session_fail_preview'             => "'''对伓住！个只段落𠮶资料跌吥嘞，偶个俚处理伓正倷𠮶编辑。请试过吖。哈系扤伓正𠮶话，试吖退出后登入过。'''",
-'session_fail_preview_html'        => "'''对伓住！相关𠮶程式资料跌吥嘞，偶个俚处理伓正倷𠮶编辑。''' 
+'session_fail_preview_html'        => "伓过意！相关𠮶程式资料跌吥哩，我俚处理伓正汝𠮶编辑。'''
 
-''个只wiki开放正嘞原HTML码，预览弆到嘞以防止JavaScript𠮶攻击。'' 
+''个只wiki开放正原HTML码，预览拕弆到以防止JavaScript𠮶攻击。''
 
-'''要系佢系合法编辑𠮶，请试过吖。哈系扤伓正𠮶话，试吖退出后登入过。'''",
+'''要系佢系合法编辑𠮶，请较过吖。哈系扤伓正𠮶话，试得[[Special:UserLogout|退出]]后登入过。'''",
 'token_suffix_mismatch'            => "'''倷𠮶用户端𠮶编辑信毁吥嘞嚸标点符号字符，啖𠮶话倷𠮶编辑就拖拒绝嘞。
 个种情况通常系含到好多臭虫、以网络为主𠮶匿名代理服务扤得。'''",
 'editing'                          => '编辑嘚$1',
@@ -603,17 +603,18 @@ $2',
 'copyrightwarning2'                => "请记得别𠮶人编得正、改得正或者删得正倷到{{SITENAME}}𠮶全部贡献。要系倷伓想自家𠮶编辑好嚟嚟拖改吥，唉就莫递交。<br />
 倷都要话正倷𠮶文字系倷自家写𠮶，或者系公有领域或别𠮶自由资源复制到𠮶（望吖$1有别𠮶资料）。
 '''冇任何许可𠮶情况下请莫递交有版权𠮶作品！'''",
-'longpagewarning'                  => "'''警告：个页有$1 kilobytes咁长；有𠮶浏览器会编伓正超吥32 kb𠮶页面。
-请考虑吖拿佢分到细嚸𠮶小段落。'''",
 'longpageerror'                    => "'''错误：倷递交𠮶文字有$1 kilobytes咁长，佢长过最大𠮶$2 kilobytes。存伓正倷递交𠮶文字。'''",
 'readonlywarning'                  => "'''警告: 数据库锁到嘞进行定期修护，眼下倷存伓正倷𠮶改动。倷可以拿佢存到文档再著。'''",
-'protectedpagewarning'             => "'''警告: 个页已经受保护，单只管理员权限𠮶用户才改得正。'''",
-'semiprotectedpagewarning'         => "'''注意：'''个页拖锁到嘞，单只注册用户编得正。",
+'protectedpagewarning'             => "'''警告: 个页拕锁到哩，单就管理员许可权𠮶用户才改得正。'''
+下首系供得汝参考𠮶最晏𠮶日志。",
+'semiprotectedpagewarning'         => "'''注意：'''个页拕锁到哩，单就注册用户编得正。
+下首系供得汝参考𠮶最晏𠮶日志。",
 'cascadeprotectedwarning'          => '警告: 个页已经受保护，单只管理员权限𠮶用户才改得正，因为个页同底下𠮶连锁保护𠮶{{PLURAL:$1|一只|多只}}页面包到嘞:',
-'titleprotectedwarning'            => "'''警告：个只页锁到喽，只有一滴子人才建得正。'''",
+'titleprotectedwarning'            => "'''警告：个只页锁到哩，需要[[Special:ListGroupRights|指定𠮶权限]]才建立得正。'''
+下首系供得汝参考𠮶最晏𠮶日志。",
 'templatesused'                    => '个只页面使用𠮶有{{PLURAL:$1|模板|模板}}:',
 'templatesusedpreview'             => '个只预览使用𠮶有{{PLURAL:$1|模板|模板}}',
-'templatesusedsection'             => '个只段落使用𠮶模板有:',
+'templatesusedsection'             => '个只段落使用𠮶{{PLURAL:$1|模板|模板}}有:',
 'template-protected'               => '（保护）',
 'template-semiprotected'           => '（半保护）',
 'hiddencategories'                 => '个只版面系属于$1只隐藏类𠮶成员：',
@@ -624,12 +625,21 @@ $2',
 'permissionserrors'                => '权限错误',
 'permissionserrorstext'            => '根据底下𠮶{{PLURAL:$1|原因|原因}}，倷冇权限去扤:',
 'permissionserrorstext-withaction' => '根据下头𠮶{{PLURAL:$1|原因|原因}}，你冇权力去舞$2：',
-'recreate-moveddeleted-warn'       => "'''警告: 倷正重建一只之前拖删吥𠮶页面。'''
+'recreate-moveddeleted-warn'       => "'''警告：汝想建过一只先头拕删吥𠮶页面。'''
 
-倷应该要考虑吖继续编辑个页面系否有必要。
-为到方便，个页𠮶删除记录已经到下底提供:",
+汝要想下接得编辑个页𠮶必要性。
+为到方便，个页𠮶删除记录已经提供嘚下首：",
 'moveddeleted-notice'              => '个只版面已经拕删吥喽。
 下头提供个只版面𠮶删除日志，以供参考。',
+'edit-conflict'                    => '编辑仗。',
+
+# Parser/template warnings
+'post-expand-template-inclusion-warning'  => "'''警告：'''含到𠮶模板尺寸大伤哩。
+有滴模板不会拕包到。",
+'post-expand-template-inclusion-category' => '模板包到超吥上限𠮶页',
+'post-expand-template-argument-warning'   => "'''警告：'''个页有只少一只模板参数𠮶尺寸过大。
+个滴参数会拕略过。",
+'post-expand-template-argument-category'  => '含到略过模板参数𠮶页',
 
 # "Undo" feature
 'undo-success' => '个只编辑可以拖取销。请检查吖以确定个系倷想扤𠮶，接到保存修改去完成撤销编辑。',
@@ -658,6 +668,7 @@ $2',
 'histlegend'             => '差异选择: 标到伓同版本𠮶单选键，接到按吖督上𠮶键比较下。<br />
 说明: （眼下） 指同目前版本𠮶比较，（之前） 指同之前修改版本𠮶比较，细 = 细修改。',
 'history-fieldset-title' => '浏览历史',
+'history-show-deleted'   => '光系删吥𠮶',
 'histfirst'              => '最早版本',
 'histlast'               => '最晏版本',
 'historysize'            => '（{{PLURAL:$1|1 字节|$1 字节}}）',
@@ -676,6 +687,7 @@ $2',
 'rev-deleted-text-permission' => '个页𠮶改动从共用文档挪吥嘞。到[{{fullurl:{{#Special:Log}}/suppress|page={{PAGENAMEE}}}} 删除日志] 里度倷话伓定有详细𠮶资料。',
 'rev-deleted-text-view'       => '个页𠮶改动从共用文档挪吥嘞。作为本站𠮶管理员，倷查看得正；到[{{fullurl:{{#Special:Log}}/suppress|page={{FULLPAGENAMEE}}}} 删除日志] 里度有详细𠮶资料。',
 'rev-delundel'                => '显示/弆到',
+'rev-showdeleted'             => '敨开',
 'revisiondelete'              => '删除/反删除修改',
 'revdelete-nooldid-title'     => '冇目标修订',
 'revdelete-nooldid-text'      => '倷冇话个只操作𠮶目标修改。',
@@ -700,6 +712,9 @@ $2',
 'revdelete-success'           => "'''修订𠮶可见性设置正喽。'''",
 'logdelete-success'           => "'''事件𠮶可见性设置正喽。'''",
 'revdel-restore'              => '改动可见性',
+'revdel-restore-deleted'      => '删吥𠮶修订版',
+'revdel-restore-visible'      => '相得到𠮶修订版',
+'pagehist'                    => '文章历史',
 'deletedhist'                 => '删吥𠮶历史',
 'revdelete-hid'               => '弆到 $1',
 
@@ -727,42 +742,61 @@ $2',
 'lineno'                  => '第$1行:',
 'compareselectedversions' => '比较拣正𠮶版本',
 'editundo'                => '还原',
-'diff-multi'              => '（$1回半中间𠮶改动伓会显示。）',
+'diff-multi'              => '{{PLURAL:$2|1只用户|$2只用户}}舞𠮶{{PLURAL:$1|一只中途修改|$1只中途修改}}冇拕显示）',
 
 # Search results
-'searchresults'             => '寻到𠮶结果',
-'searchresults-title'       => '对"$1"寻到𠮶结果',
-'searchresulttext'          => '有关𠮶{{SITENAME}}𠮶更多资料,请参看[[{{MediaWiki:Helppage}}|{{int:help}}]]。',
-'searchsubtitle'            => "用'''[[:$1]]'''",
-'searchsubtitleinvalid'     => "用'''$1'''寻",
-'toomanymatches'            => '返回多伤喽𠮶结果，请试吖用别𠮶词语寻过',
-'titlematches'              => '文章标题符合',
-'notitlematches'            => '冇页面同文章标题符合',
-'textmatches'               => '页面内容符合',
-'notextmatches'             => '冇页面内容符合',
-'prevn'                     => '前{{PLURAL:$1|$1}}只',
-'nextn'                     => '后{{PLURAL:$1|$1}}只',
-'viewprevnext'              => '眵吖（$1 {{int:pipe-separator}} $2） （$3）',
-'searchhelp-url'            => 'Help:说明',
-'search-result-size'        => '$1 （$2只字）',
-'search-redirect'           => '（重定向 $1）',
-'search-section'            => '（小节 $1）',
-'search-suggest'            => '倷系要寻：$1',
-'search-interwiki-caption'  => '姊妹计划',
-'search-interwiki-default'  => '$1只结果：',
-'search-interwiki-more'     => '（更多）',
-'search-mwsuggest-enabled'  => '有建议',
-'search-mwsuggest-disabled' => '冇建议',
-'showingresults'            => '底下从第<b>$2</b>条显示起先𠮶<b>$1</b>条结果:',
-'showingresultsnum'         => '底下从第<b>$2</b>条显示起先𠮶<b>$3</b>条结果:',
-'nonefound'                 => '<strong>注意：</strong>寻伓到往往系因为搜索夹到像“𠮶”或“同”之类𠮶常用字扤得。',
-'search-nonefound'          => '冇合到𠮶查询结果。',
-'powersearch'               => '高级寻',
-'powersearch-legend'        => '高级搜寻',
-'powersearch-ns'            => '到名子空间里头寻：',
-'powersearch-redir'         => '重定向𠮶表单',
-'powersearch-field'         => '寻',
-'searchdisabled'            => '{{SITENAME}}𠮶搜索功能已经关闭。倷可以用Google寻吖。但系佢𠮶索引可能系早先𠮶。',
+'searchresults'                    => '寻到𠮶结果',
+'searchresults-title'              => '对"$1"寻到𠮶结果',
+'searchresulttext'                 => '有关𠮶{{SITENAME}}𠮶更多资料,请参看[[{{MediaWiki:Helppage}}|{{int:help}}]]。',
+'searchsubtitle'                   => "用'''[[:$1]]'''",
+'searchsubtitleinvalid'            => "用'''$1'''寻",
+'toomanymatches'                   => '返回多伤喽𠮶结果，请试吖用别𠮶词语寻过',
+'titlematches'                     => '文章标题符合',
+'notitlematches'                   => '冇页面同文章标题符合',
+'textmatches'                      => '页面内容符合',
+'notextmatches'                    => '冇页面内容符合',
+'prevn'                            => '前{{PLURAL:$1|$1}}只',
+'nextn'                            => '后{{PLURAL:$1|$1}}只',
+'prevn-title'                      => '头$1只{{PLURAL:$1|结果}}',
+'nextn-title'                      => '后$1只结果',
+'shown-title'                      => '每页显示$1只{{PLURAL:$1|结果}}',
+'viewprevnext'                     => '眵吖（$1 {{int:pipe-separator}} $2） （$3）',
+'searchmenu-exists'                => "'''个只wiki已有一只叫「[[:$1]]」𠮶页。'''",
+'searchmenu-new'                   => "'''嘚个只wiki上建立「[[:$1]]」页！'''",
+'searchhelp-url'                   => 'Help:说明',
+'searchprofile-articles'           => '内容页',
+'searchprofile-project'            => '帮助同得计划页',
+'searchprofile-images'             => '多媒体',
+'searchprofile-everything'         => '所有',
+'searchprofile-advanced'           => '高级',
+'searchprofile-articles-tooltip'   => '到$1里头寻',
+'searchprofile-project-tooltip'    => '到$1里头寻',
+'searchprofile-images-tooltip'     => '寻档案',
+'searchprofile-everything-tooltip' => '寻所有内容（包括谈𫍡页）',
+'searchprofile-advanced-tooltip'   => '到自定名字空间里头寻',
+'search-result-size'               => '$1 （$2只字）',
+'search-result-category-size'      => '$1只成员（$2只子分类，$3只档案）',
+'search-redirect'                  => '（重定向 $1）',
+'search-section'                   => '（小节 $1）',
+'search-suggest'                   => '倷系要寻：$1',
+'search-interwiki-caption'         => '姊妹计划',
+'search-interwiki-default'         => '$1只结果：',
+'search-interwiki-more'            => '（更多）',
+'search-mwsuggest-enabled'         => '有建议',
+'search-mwsuggest-disabled'        => '冇建议',
+'searchrelated'                    => '相关',
+'searchall'                        => '所有',
+'showingresults'                   => '底下从第<b>$2</b>条显示起先𠮶<b>$1</b>条结果:',
+'showingresultsnum'                => '底下从第<b>$2</b>条显示起先𠮶<b>$3</b>条结果:',
+'showingresultsheader'             => "'''$4'''𠮶{{PLURAL:$5|第'''$1'''到第'''$3'''只结果|第'''$1 - $2'''只，拢共'''$3'''只结果}}",
+'nonefound'                        => '<strong>注意：</strong>寻伓到往往系因为搜索夹到像“𠮶”或“同”之类𠮶常用字扤得。',
+'search-nonefound'                 => '冇合到𠮶查询结果。',
+'powersearch'                      => '高级寻',
+'powersearch-legend'               => '高级搜寻',
+'powersearch-ns'                   => '到名子空间里头寻：',
+'powersearch-redir'                => '重定向𠮶表单',
+'powersearch-field'                => '寻',
+'searchdisabled'                   => '{{SITENAME}}𠮶搜索功能已经关闭。倷可以用Google寻吖。但系佢𠮶索引可能系早先𠮶。',
 
 # Quickbar
 'qbsettings'               => '快捷导航条',
@@ -777,7 +811,7 @@ $2',
 'mypreferences'             => '偶𠮶参数设置',
 'prefs-edits'               => '编辑数:',
 'prefsnologin'              => '哈冇登入',
-'prefsnologintext'          => '倷要[[Special:UserLogin|登入]]后才设得正个人参数。',
+'prefsnologintext'          => '汝要<span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} 登入]</span>后才设得正个人参数。',
 'changepassword'            => '改过密码',
 'prefs-skin'                => '皮',
 'skin-preview'              => '（预览）',
@@ -803,7 +837,7 @@ $2',
 'recentchangesdays'         => '最近更改中𠮶显示日数:',
 'recentchangescount'        => '最近更改中𠮶编辑数:',
 'savedprefs'                => '倷𠮶个人参数设置保存正嘞。',
-'timezonelegend'            => '时区',
+'timezonelegend'            => '时区：',
 'localtime'                 => '当地时区',
 'timezoneoffset'            => '时差¹',
 'servertime'                => '服务器时间',
@@ -817,7 +851,7 @@ $2',
 'uid'                       => '用户ID：',
 'yourrealname'              => '真名：',
 'yourlanguage'              => '语言：',
-'yourvariant'               => '转换字体',
+'yourvariant'               => '多款内容语言：',
 'yournick'                  => '签名：',
 'badsig'                    => '原始签名错误，请检查HTML。',
 'badsiglength'              => '花名咁长？佢𠮶长度要少过$1只字符。',
@@ -872,6 +906,10 @@ $2',
 'recentchanges-legend'              => '个朝子𠮶更改选项',
 'recentchangestext'                 => '跟到个只wiki上𠮶最新改动。',
 'recentchanges-feed-description'    => '跟到个只 wiki 上集合𠮶最后改动。',
+'recentchanges-label-newpage'       => '个只编辑会建立只新页',
+'recentchanges-label-minor'         => '个系只细修改',
+'recentchanges-label-bot'           => '个只编辑系机器人舞𠮶',
+'recentchanges-label-unpatrolled'   => '个只编辑冇拕查过',
 'rcnote'                            => "下底系到$4 $5，个'''$2'''日𠮶'''$1'''回改动:",
 'rcnotefrom'                        => "底下系自'''$2'''𠮶更改（顶多显示'''$1'''）:",
 'rclistfrom'                        => '显示自$1后𠮶新改动',
@@ -919,9 +957,9 @@ $2',
 要眵或要寻先前上传𠮶图像请去[[Special:FileList|图像列表]]，上传同删除会记到[[Special:Log/upload|上传日志]]里度。
 
 要系想扻文件到页面，用得正下底𠮶方式链接:
-'''[[{{ns:file}}:File.jpg]]''',
-'''[[{{ns:file}}:File.png|alt text]]''' 或
-'''[[{{ns:media}}:File.ogg]]''' 直接连接到个只文件。",
+'''<tt><nowiki>[[</nowiki>{{ns:file}}<nowiki>:File.jpg]]</nowiki></tt>''',
+'''<tt><nowiki>[[</nowiki>{{ns:file}}<nowiki>:File.png|alt text]]</nowiki></tt>''' 或
+'''<tt><nowiki>[[</nowiki>{{ns:media}}<nowiki>:File.ogg]]</nowiki></tt>''' 直接连接到个只文件。",
 'upload-permitted'            => '容许𠮶文件类型：$1。',
 'upload-preferred'            => '优先𠮶文件类型：$1。',
 'upload-prohibited'           => '禁止𠮶文件类型：$1。',
@@ -955,7 +993,6 @@ $2',
 'file-thumbnail-no'           => "个只档案名系以'''<tt>$1</tt>'''开头。佢好像一只图像𠮶缩小版''（缩图）''。如果倷有个只图像𠮶完整版，伓然请再改过只档名。",
 'fileexists-forbidden'        => '个只档案名已存在；请回头并换过只新𠮶名称来上传个只档案。[[File:$1|thumb|center|$1]]',
 'fileexists-shared-forbidden' => '到共用档案库里度有嘞同名𠮶档案；请回头并换过只新𠮶名称来上传个只档案。[[File:$1|thumb|center|$1]]',
-'successfulupload'            => '上传正嘞',
 'uploadwarning'               => '上传警告',
 'savefile'                    => '保存盘案',
 'uploadedimage'               => '上传正嘞"[[$1]]"',
@@ -973,6 +1010,7 @@ $2',
 倷要想正系真𠮶上传个只档案。
 为到方便起见，个只档案𠮶删除记录到下底提供嘞:",
 'filename-bad-prefix'         => "倷上传𠮶档案名系以'''\"\$1\"'''做开头𠮶，通常个种冇意义𠮶名字系数码相机度𠮶自动编排。请到倷𠮶档案拣过只更加有意义𠮶名字。",
+'upload-success-subj'         => '上传正嘞',
 
 'upload-proto-error'      => '协定错误',
 'upload-proto-error-text' => '远程上传要求 URL 用 <code>http://</code> 或 <code>ftp://</code> 开头。',
@@ -988,7 +1026,7 @@ $2',
 'upload-curl-error28-text' => '站点回应时间过长。请检查个只网站𠮶访问系否正常，过吖再试过。倷可能要等网络伓咁卡𠮶时间再试吖。',
 
 'license'            => '授权:',
-'license-header'     => '授权:',
+'license-header'     => '授权',
 'nolicense'          => '冇选定',
 'license-nopreview'  => '（冇预览用得正）',
 'upload_source_url'  => '（一只有效𠮶，公开𠮶 URL）',
@@ -1019,8 +1057,8 @@ $2',
 'filehist-dimensions'       => '尺寸',
 'filehist-filesize'         => '档案大细',
 'filehist-comment'          => '说明',
-'imagelinks'                => '链接',
-'linkstoimage'              => '底下𠮶页面链接到个只档案:',
+'imagelinks'                => '档案使用',
+'linkstoimage'              => '底下𠮶$1只页面连结到个只档案：',
 'nolinkstoimage'            => '冇页面链接到个只档案。',
 'sharedupload'              => '个只档案来自$1，佢可能到别𠮶项目拕应用。',
 'sharedupload-desc-there'   => '个只档案来自$1，佢可能拕应用嘚别𠮶项目。
@@ -1033,7 +1071,7 @@ $2',
 'filerevert'                => '恢复$1',
 'filerevert-legend'         => '恢复档案',
 'filerevert-intro'          => "眼下倷恢复嘚'''[[Media:$1|$1]]'''到[$4 于$2 $3𠮶版本]。",
-'filerevert-comment'        => '说明:',
+'filerevert-comment'        => '理由：',
 'filerevert-defaultcomment' => '恢复到嘞$1, $2𠮶版本',
 'filerevert-submit'         => '恢复',
 'filerevert-success'        => "'''[[Media:$1|$1]]'''恢复到嘞[$4 于$2 $3𠮶版本]。",
@@ -1102,6 +1140,7 @@ $2',
 'statistics-mostpopular'       => '眵𠮶人最多𠮶页面',
 
 'disambiguations'      => '扤清楚页',
+'disambiguationspage'  => 'Template:扤清楚',
 'disambiguations-text' => "底下𠮶页面都有到'''扤清楚页'''𠮶链接, 但系佢俚应当系连到正当𠮶标题。<br />
 如果一只页面系链接自[[MediaWiki:Disambiguationspage]]，佢会拖当成扤清楚页。",
 
@@ -1203,10 +1242,14 @@ $2',
 
 # Special:Categories
 'categories'         => '页面分类',
-'categoriespagetext' => '下底𠮶分类包到页面或系媒体文件。',
+'categoriespagetext' => '下底𠮶分类包到页面或系媒体文件。
+[[Special:UnusedCategories|Unused categories]] are not shown here.
+Also see [[Special:WantedCategories|wanted categories]].',
 
 # Special:LinkSearch
-'linksearch' => '外部连结',
+'linksearch'      => '外部连结',
+'linksearch-ok'   => '寻吖',
+'linksearch-line' => '$1连自$2',
 
 # Special:ListUsers
 'listusersfrom'      => '显示啖样用户条件:',
@@ -1244,7 +1287,7 @@ $2',
 # Watchlist
 'watchlist'            => '监视列表',
 'mywatchlist'          => '偶𠮶监视列表',
-'watchlistfor'         => "（'''$1'''𠮶监视列表'）",
+'watchlistfor2'        => '$1𠮶监视列表$2',
 'nowatchlist'          => '倷𠮶监视列表什哩都冇有。',
 'watchlistanontext'    => '请$1眵吖或改吖倷𠮶监视列表。',
 'watchnologin'         => '冇登入',
@@ -1252,7 +1295,7 @@ $2',
 'addedwatch'           => '加到嘞监视列表',
 'addedwatchtext'       => "页面\"[[:\$1]]\" 加到嘞倷𠮶[[Special:Watchlist|监视列表]]。个页同佢𠮶讨论页𠮶全部改动以后都会列到许首，佢会用'''粗体''' 列到[[Special:RecentChanges|最近更改]]让倷更加容易识别。 倷以后要系拿佢到监视列表删卟佢𠮶话，就到导航条点吖“莫眏到”。",
 'removedwatch'         => '莫眏到',
-'removedwatchtext'     => '页面"$1"到倷𠮶监视列表删卟嘞。',
+'removedwatchtext'     => '页面[[:$1]]到[[Special:Watchlist|倷𠮶监视列表]]删卟哩。',
 'watch'                => '眏到',
 'watchthispage'        => '眏到个页',
 'unwatch'              => '莫眏到',
@@ -1307,9 +1350,10 @@ $NEWPAGE
 'exblank'               => '页面冇内容',
 'delete-confirm'        => '删卟"$1"去',
 'delete-legend'         => '删卟去',
-'historywarning'        => '警告: 倷要删卟𠮶页面含到历史版',
+'historywarning'        => "'''警告''': 倷要删卟𠮶页面含到$1到{{PLURAL:$1|修订|修订}}𠮶历史",
 'confirmdeletetext'     => '仰上倷就要永久删卟数据库𠮶一只页面或图像同佢𠮶历史。请确定倷要啖做，哈要晓得佢𠮶后果，更加伓能违反[[{{MediaWiki:Policy-url}}]]。',
 'actioncomplete'        => '扤正嘞',
+'actionfailed'          => '操作冇舞正',
 'deletedtext'           => '"$1"删卟嘞。最晏𠮶删除记录请望$2。',
 'deletedarticle'        => '"[[$1]]"删卟嘞',
 'dellogpage'            => '删除日志',
@@ -1337,7 +1381,9 @@ $NEWPAGE
 'editcomment'      => "编辑介绍: \"''\$1''\"。",
 'revertpage'       => '返回由[[Special:Contributions/$2|$2]] （[[User talk:$2|对话]]）𠮶编辑；恢复到[[User:$1|$1]]𠮶最末一只版本',
 'rollback-success' => '返回由$1𠮶编辑；恢复到$2𠮶最末一只版本。',
-'sessionfailure'   => '倷𠮶登入好像有嚸问题，为到防范未然，个只动作拖取消嘞。
+
+# Edit tokens
+'sessionfailure' => '倷𠮶登入好像有嚸问题，为到防范未然，个只动作拖取消嘞。
 
 请按吖“后退”再试过啰！',
 
@@ -1401,6 +1447,7 @@ $NEWPAGE
 'undelete-nodiff'              => '冇寻到以前𠮶版本。',
 'undeletebtn'                  => '恢复',
 'undeletelink'                 => '还原',
+'undeleteviewlink'             => '望吖',
 'undeletereset'                => '设过',
 'undeletecomment'              => '评论:',
 'undeletedarticle'             => '恢复正𠮶"[[$1]]"',
@@ -1443,10 +1490,13 @@ $1',
 'sp-contributions-newbies'     => '单显到新用户𠮶贡献',
 'sp-contributions-newbies-sub' => '新用户𠮶贡献',
 'sp-contributions-blocklog'    => '封锁记录',
-'sp-contributions-talk'        => '谈詑',
+'sp-contributions-uploads'     => '上载',
+'sp-contributions-logs'        => '日志',
+'sp-contributions-talk'        => '谈𫍡',
 'sp-contributions-userrights'  => '用户权限管理',
 'sp-contributions-search'      => '寻贡献',
 'sp-contributions-username'    => 'IP地址或用户名：',
+'sp-contributions-toponly'     => '光显示最晏修订版本𠮶编辑',
 'sp-contributions-submit'      => '寻',
 
 # What links here
@@ -1465,6 +1515,7 @@ $1',
 'whatlinkshere-hideredirs' => '$1重定向',
 'whatlinkshere-hidetrans'  => '$1含到',
 'whatlinkshere-hidelinks'  => '$1连结',
+'whatlinkshere-hideimages' => '$1档案连结',
 'whatlinkshere-filters'    => '筛滤器',
 
 # Block/unblock
@@ -1499,14 +1550,13 @@ $1',
 'ipb-edit-dropdown'           => '编写封锁原因',
 'ipb-unblock-addr'            => '解封$1',
 'ipb-unblock'                 => '解封用户名或IP地址',
-'ipb-blocklist-addr'          => '望吖$1目前𠮶封禁',
 'ipb-blocklist'               => '望吖目前𠮶封禁',
 'unblockip'                   => '解封IP地址',
 'unblockiptext'               => '用下底𠮶表格去恢复早先拖封𠮶IP𠮶编写权。',
 'ipusubmit'                   => '解封个只地址',
 'unblocked'                   => '[[User:$1|$1]]解封嘞',
 'unblocked-id'                => '封禁$1拖删卟嘞',
-'ipblocklist'                 => '拖封IP列表',
+'ipblocklist'                 => '拕封用户𠮶名单',
 'ipblocklist-legend'          => '寻吖拖封锁𠮶用户',
 'ipblocklist-username'        => '用户名或IP地址:',
 'ipblocklist-submit'          => '寻',
@@ -1694,7 +1744,7 @@ Please visit [http://www.mediawiki.org/wiki/Localisation MediaWiki Localisation]
 'tooltip-ca-viewsource'           => '个页已拖保护。但倷能望吖佢𠮶源代码。',
 'tooltip-ca-history'              => '个页早先𠮶版本',
 'tooltip-ca-protect'              => '护到个页',
-'tooltip-ca-unprotect'            => '护得个页',
+'tooltip-ca-unprotect'            => '改吥个页𠮶保护',
 'tooltip-ca-delete'               => '删卟个页',
 'tooltip-ca-undelete'             => '拿个页还原到删卟之前𠮶样子',
 'tooltip-ca-move'                 => '移动个页',
@@ -1741,6 +1791,7 @@ Please visit [http://www.mediawiki.org/wiki/Localisation MediaWiki Localisation]
 'tooltip-upload'                  => '开始上传',
 'tooltip-rollback'                => '『反转』可以一捺复原头一位贡献者对个版𠮶编辑',
 'tooltip-undo'                    => '『复原』可以到编辑模式里头开只编辑表以便复原。佢容许到摘要里头加进原因。',
+'tooltip-summary'                 => '输入只简要',
 
 # Stylesheets
 'common.css'   => '/** 个首𠮶CSS会用到全部𠮶皮肤 */',
@@ -1837,11 +1888,11 @@ $1',
 'mediawarning'         => "'''警告''': 话伓定个只档案含到恶意代码，执行佢话伓定会损坏倷𠮶系统。",
 'imagemaxsize'         => '档案解释页𠮶图像大细限制到:',
 'thumbsize'            => '缩略图大细:',
-'widthheightpage'      => '$1×$2,$3页',
-'file-info'            => '（档案大细: $1, MIME 类型: $2）',
-'file-info-size'       => '（$1 × $2 像素，档案大细：$3 ，MIME类型：$4）',
+'widthheightpage'      => '$1 × $2,$3页',
+'file-info'            => '档案大细: $1, MIME 类型: $2',
+'file-info-size'       => '$1 × $2 像素，档案大细：$3 ，MIME类型：$4',
 'file-nohires'         => '<small>冇更高分辨率𠮶图像。</small>',
-'svg-long-desc'        => '（SVG档案，表面大细： $1 × $2 像素，档案大细：$3）',
+'svg-long-desc'        => 'SVG档案，表面大细： $1 × $2 像素，档案大细：$3',
 'show-big-image'       => '完整分辨率',
 'show-big-image-thumb' => '<small>个幅缩略图𠮶分辨率: $1 × $2 像素</small>',
 
@@ -2155,11 +2206,11 @@ $1',
 'confirmemail_loggedin'   => '倷𠮶email地址已得到确认。',
 'confirmemail_error'      => '确认过程出错。',
 'confirmemail_subject'    => '{{SITENAME}}电子邮件地址确认',
-'confirmemail_body'       => 'IP地址$1𠮶用户（可能系倷）到{{SITENAME}}注册嘞帐户"$2"，并一同用嘞倷𠮶email地址。 
+'confirmemail_body'       => 'IP地址$1𠮶用户（可能系倷）到{{SITENAME}}注册嘞帐户"$2"，并一同用嘞倷𠮶email地址。
 
-请确认个只帐户系归倷𠮶，接到启动{{SITENAME}}里头𠮶email功能。请到浏览器开到下底𠮶链接: 
+请确认个只帐户系归倷𠮶，接到启动{{SITENAME}}里头𠮶email功能。请到浏览器开到下底𠮶链接:
 
-$3 
+$3
 
 如果个*伓系*倷，就冇必要打开个只链接。确认码会到$4时间过期。',
 
@@ -2246,6 +2297,7 @@ $1',
 
 # Core parser functions
 'unknown_extension_tag' => '伓认得𠮶扩展标签 "$1"',
+'duplicate-defaultsort' => '\'\'\'警告：\'\'\'预设𠮶排序键 "$2" 覆蓋先头𠮶预设排序键 "$1"。',
 
 # Special:Version
 'version'                          => '版本',
@@ -2277,5 +2329,18 @@ $1',
 # Special:SpecialPages
 'specialpages'                 => '特殊页',
 'specialpages-group-redirects' => '重定向特殊页面',
+
+# External image whitelist
+'external_image_whitelist' => '#留住个行字<pre>
+#到下首（//𠮶中间）输入正规表达式
+#佢俚会同得外部（已超连结𠮶）图片配合
+#许滴配合到出来𠮶会显示做图片，否则就光会显示做连结
+#有 # 开头𠮶行会当做注解
+#大小写冇有差别
+
+#到个行上首输入所有𠮶regex。留住个行字</pre>',
+
+# Special:Tags
+'tag-filter' => '[[Special:Tags|标签]]过滤器：',
 
 );

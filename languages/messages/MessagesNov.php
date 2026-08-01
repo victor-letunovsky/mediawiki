@@ -90,6 +90,11 @@ $messages = array(
 'qbmyoptions'    => 'Men pagines',
 'qbspecialpages' => 'Spesial pagines',
 
+# Vector skin
+'vector-action-delete' => 'Ekarta',
+'vector-view-edit'     => 'Modifika',
+'vector-view-view'     => 'Lekte',
+
 'returnto'         => 'Rivada a $1.',
 'tagline'          => 'Fro {{SITENAME}}',
 'help'             => 'Helpo',
@@ -146,6 +151,7 @@ $messages = array(
 'youhavenewmessagesmulti' => 'Vu have novi mesajes pri $1',
 'editsection'             => 'modifika',
 'editold'                 => 'modifika',
+'editlink'                => 'modifika',
 'restorelink'             => '{{PLURAL:$1|unu ekartati modifiko|$1 ekartati modifikos}}',
 'red-link-title'          => '$1 (pagine non exista)',
 
@@ -170,7 +176,7 @@ $messages = array(
 Vu pove kontinua usa {{SITENAME}} anonimim, o vu pove riensignata kom li sami o altri usere.",
 'yourname'                   => 'Usere-nome:',
 'yourpassword'               => 'Pasa-vorde:',
-'remembermypassword'         => 'Memora men pasa-vorde (kun kuke)',
+'remembermypassword'         => 'Memora men pasa-vorde (kun kuke) (for a maximum of $1 {{PLURAL:$1|day|days}})',
 'login'                      => 'Ensignata',
 'loginprompt'                => 'Vu mus lasa cookies de ensignata en {{SITENAME}}.',
 'userlogin'                  => 'Ensignata / krea usere-registre',
@@ -184,7 +190,8 @@ Vu pove kontinua usa {{SITENAME}} anonimim, o vu pove riensignata kom li sami o 
 'loginsuccesstitle'          => 'Ensignato suksesosi',
 'loginsuccess'               => "'''Vu es nun ensignatat a {{SITENAME}} nomisat \"\$1\".'''",
 'mailmypassword'             => 'E-posta men pasa-vorde',
-'acct_creation_throttle_hit' => 'Vu ha ja krea $1 registres. Regretindim vu non pove krea plusu.',
+'acct_creation_throttle_hit' => 'Visitors to this wiki using your IP address have created {{PLURAL:$1|1 account|$1 accounts}} in the last day, which is the maximum allowed in this time period.
+As a result, visitors using this IP address cannot create any more accounts at the moment.',
 'accountcreated'             => 'Registre kreat',
 'accountcreatedtext'         => 'Li usere-registre por $1 ha bli krea.',
 
@@ -241,7 +248,7 @@ Proba [[Special:Search|sercho sur li wiki]] por relatet pagines.',
 'preferences'           => 'Preferos',
 'mypreferences'         => 'Men preferos',
 'prefsnologin'          => 'Non ensignatat',
-'prefsnologintext'      => 'Vu mus es [[Special:UserLogin|ensignatat]] por determina useren preferos.',
+'prefsnologintext'      => 'Vu mus es <span class="plainlinks">[{{fullurl:{{#Special:UserLogin}}|returnto=$1}} ensignatat] por determina useren preferos.',
 'prefs-rc'              => 'Resenti chanjos',
 'searchresultshead'     => 'Sercha',
 'timezoneregion-africa' => 'Afrika',
@@ -249,7 +256,7 @@ Proba [[Special:Search|sercho sur li wiki]] por relatet pagines.',
 # Recent changes
 'nchanges'        => '$1 {{PLURAL:$1|chanjo|chanjos}}',
 'recentchanges'   => 'Resenti chanjos',
-'rcnote'          => "Subu es {{PLURAL:$1| '''1''' chanje|li lasti '''$1''' chanjes}} in li lasti {{PLURAL:$2|die|'''$2''' dies}}, fro $3.",
+'rcnote'          => "Subu es {{PLURAL:$1| '''1''' chanje|li lasti '''$1''' chanjes}} in li lasti {{PLURAL:$2|die|'''$2''' dies}}, fro $4, $5.",
 'rcshowhideminor' => '$1 minori modifikos',
 'rcshowhideanons' => '$1 anonimi useres',
 'rcshowhidemine'  => '$1 men modifikos',
@@ -331,7 +338,9 @@ Proba [[Special:Search|sercho sur li wiki]] por relatet pagines.',
 
 # Special:Categories
 'categories'         => 'Kategories',
-'categoriespagetext' => 'Li sekuenti kategories exista in li wiki.',
+'categoriespagetext' => 'Li sekuenti {{PLURAL:$1|kategorie|kategories}} exista in li wiki.
+[[Special:UnusedCategories|Unused categories]] are not shown here.
+Also see [[Special:WantedCategories|wanted categories]].',
 
 # Special:LinkSearch
 'linksearch-ok' => 'Sercha',

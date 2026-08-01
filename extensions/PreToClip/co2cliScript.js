@@ -1,0 +1,1 @@
+function co2cli(cId){if(document.selection){var r=document.body.createTextRange();r.moveToElementText(document.getElementById(cId));r.select().createTextRange();document.execCommand('copy');}else if(window.getSelection){var r=document.createRange();r.selectNode(document.getElementById(cId));window.getSelection().addRange(r);document.execCommand('copy');}}

@@ -52,7 +52,7 @@ function wfAddObjectTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 	global $wgClippy;
 
 	// $link = htmlspecialchars($input);
-        $link = str_replace('"', '&quot;', $input);
+	$link = str_replace('"', '&quot;', $input);
 	if(isset($args['show']) && $args['show'] == true) {
 		$html = $link.'  ';
 	} else {

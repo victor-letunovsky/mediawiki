@@ -348,7 +348,8 @@ class DPL {
 		}
 
 		// other list modes
-		$sk = & $wgUser->getSkin();
+		#$sk = & $wgUser->getSkin();
+		$sk = $wgUser->getSkin();
 
 		// process results of query, outputing equivalent of <li>[[Article]]</li> for each result,
 		// or something similar if the list uses other startlist/endlist;
