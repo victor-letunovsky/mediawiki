@@ -23,7 +23,7 @@ if( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['parser extensions'][] = array(
         'path'           => __FILE__,
         'name'           => 'CopyToClipboard',
-        'version'        => '0.2.0',
+        'version'        => '0.3.0',
         'author'         => 'Nischay Nahata',
         'url'            => 'https://www.mediawiki.org/wiki/Extension:CopyToClipboard',
         'descriptionmsg' => 'copytoclipboard-desc',
@@ -31,35 +31,32 @@ $wgExtensionCredits['parser extensions'][] = array(
 );
 $wgExtensionCredits['parserhook'][] = array(
         'name'           => 'CopyToClipboard',
-        'version'        => '0.2.0',
+        'version'        => '0.3.0',
         'author'         => 'Nischay Nahata',
         'url'            => 'https://www.mediawiki.org/wiki/Extension:CopyToClipboard',
         'description'    => 'Adds a tag to show a "<tt>copy to clipboard</tt>" button on pages',
 );
-
-$wgClippy = "$wgScriptPath/extensions/CopyToClipboard/clippy.swf";
 
 $wgMessagesDirs['CopyToClipboard'] = __DIR__ . '/i18n';
 
 $wgHooks['ParserFirstCallInit'][] = 'wfCopyToClipboardInit';
 
 function wfCopyToClipboardInit( Parser $parser ) {
-    $parser->setHook( 'clippy', 'wfAddObjectTag' );
+    $parser->setHook( 'clippy', 'wfAddCopyToClipboardTag' );
     return true;
 }
 
-function wfAddObjectTag( $input, array $args, Parser $parser, PPFrame $frame ) {
-	global $wgClippy;
+function wfAddCopyToClipboardTag( $input, array $args, Parser $parser, PPFrame $frame ) {
+	$escapedInput = htmlspecialchars( $input, ENT_QUOTES, 'UTF-8' );
+	$encodedText = json_encode( $input );
 
-	// $link = htmlspecialchars($input);
-	$link = str_replace('"', '&quot;', $input);
-	if(isset($args['show']) && $args['show'] == true) {
-		$html = $link.'  ';
+	if ( isset( $args['show'] ) && $args['show'] == true ) {
+		$html = $escapedInput . ' ';
 	} else {
-		$html = '  ';
+		$html = '';
 	}
 
-	$html .= '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="110" height="14" id="clippy" ><param name="movie" value="'.$wgClippy.'"/><param name="allowScriptAccess" value="always" /><param name="quality" value="high" /><param name="scale" value="noscale" /><param NAME="FlashVars" value="text='.$link.'"><param name="bgcolor" value="#white"><embed src="'.$wgClippy.'" width="110" height="14" name="clippy" quality="high" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" FlashVars="text='.$link.'"bgcolor="#white"/></object>';
+	$html .= '<button type="button" class="copy-to-clipboard-btn" onclick="navigator.clipboard.writeText(' . htmlspecialchars( $encodedText, ENT_QUOTES, 'UTF-8' ) . ')">Copy</button>';
 
 	return $html;
 }
