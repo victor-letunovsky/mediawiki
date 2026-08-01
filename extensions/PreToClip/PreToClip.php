@@ -1,7 +1,7 @@
 <?php
 $wgExtensionCredits['other'][] = array (
 	'name' => 'PreToClip',
-	'version' => '0.1',
+	'version' => '0.2.0',
 	'author' => 'Thomas Candrian, based on the work of Jon Rohan, James M. Greene',
 	'url'    => 'https://www.mediawiki.org/wiki/Extension:PreToClip',
 	'description' => htmlentities('Adds a copy to clipboard button to every <pre> tag')
@@ -104,7 +104,7 @@ function wfAddClpbTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 		global $clpbTagFirst;
 		if ($clpbTagFirst) {
 			global $clpbStyleFirst;
-			$html .= "<script>function cp2clpb(s){var r=document.createElement('textarea');r.value=s;document.body.appendChild(r);r.select();document.execCommand('copy');document.body.removeChild(r);}</script>";
+			$html .= "<script>function cp2clpb(s){navigator.clipboard.writeText(s);}</script>";
 			if ($clpbStyleFirst) {
 		    	global $cp2clpbStyle;
 				$html .= $cp2clpbStyle;
