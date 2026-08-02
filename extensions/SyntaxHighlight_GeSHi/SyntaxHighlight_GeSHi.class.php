@@ -92,19 +92,12 @@ class SyntaxHighlight_GeSHi {
 		static $geshiScriptFirst = true;
 		$scriptHtml = '';
 		if ( $geshiScriptFirst ) {
-			$scriptHtml = "<script>\n" .
-				"if (typeof co2cli === 'undefined') {\n" .
-				"    function co2cli(cId) {\n" .
-				"        var el = document.getElementById(cId);\n" .
-				"        if (el) {\n" .
-				"            var text = el.innerText || el.textContent;\n" .
-				"            navigator.clipboard.writeText(text);\n" .
-				"        }\n" .
-				"    }\n" .
-				"}\n" .
-				"</script>\n";
+			global $wgScriptPath;
+			$scriptHtml = "<script src='" . $wgScriptPath . "/extensions/PreToClip/co2cliScript.js'></script>";
+			$parser->mOutput->addHeadItem( $scriptHtml, 'co2cli-script' );
 			$geshiScriptFirst = false;
 		}
+		$scriptHtml = '';
 
 		$buttonHtml = "<div style=\"text-align:right; margin-bottom:-35px;\"><button id=\"geshi-cp-btn" . $geshiTagIdx . "\" onclick=\"co2cli('" . $geshiId . "')\">cp</button></div>\n";
 
