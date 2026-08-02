@@ -88,9 +88,9 @@ return  "<script language=\"JavaScript\">\n" .
         "--></style>\n";
 }
  
-function spoilerParserHook( &$parser , &$text ) { 
+function spoilerParserHook( &$out , &$text ) { 
     if (strpos($text, "class=\"spoiler\"") !== false) {
-        $text = wfSpoilerJavaScript() . $text;
+        $out->addHeadItem( 'jspoiler', wfSpoilerJavaScript() );
     }
     return true;
 }
