@@ -54,24 +54,9 @@ function wfAddCopyToClipboardTag( $input, array $args, Parser $parser, PPFrame $
 
 	$html = '';
 	if ( $copyToClipboardScriptFirst ) {
-		$html .= "<script>\n" .
-			"function copyToClipboard(text) {\n" .
-			"    if (navigator.clipboard && navigator.clipboard.writeText) {\n" .
-			"        navigator.clipboard.writeText(text);\n" .
-			"    } else {\n" .
-			"        var ta = document.createElement('textarea');\n" .
-			"        ta.value = text;\n" .
-			"        document.body.appendChild(ta);\n" .
-			"        ta.select();\n" .
-			"        try {\n" .
-			"            document.execCommand('copy');\n" .
-			"        } catch (err) {\n" .
-			"            console.error('Failed to copy text', err);\n" .
-			"        }\n" .
-			"        document.body.removeChild(ta);\n" .
-			"    }\n" .
-			"}\n" .
-			"</script>\n";
+		global $wgScriptPath;
+		$scriptHtml = "<script src='" . $wgScriptPath . "/extensions/PreToClip/co2cliScript.js'></script>";
+		$parser->mOutput->addHeadItem( $scriptHtml, 'co2cli-script' );
 		$copyToClipboardScriptFirst = false;
 	}
 

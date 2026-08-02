@@ -35,3 +35,7 @@ function cp2clpb(text) {
         document.body.removeChild(ta);
     }
 }
+
+function copyToClipboard(text) {
+    cp2clpb(text);
+}
