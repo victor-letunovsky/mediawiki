@@ -61,14 +61,13 @@ function wfAddCopyToClipboardTag( $input, array $args, Parser $parser, PPFrame $
 	}
 
 	$escapedInput = htmlspecialchars( $input, ENT_QUOTES, 'UTF-8' );
-	$jsonInput = json_encode( $input );
-	$escapedJson = htmlspecialchars( $jsonInput, ENT_QUOTES, 'UTF-8' );
+	$base64Input = base64_encode( $input );
 
 	if ( isset( $args['show'] ) && $args['show'] == true ) {
 		$html .= $escapedInput . ' ';
 	}
 
-	$html .= '<button type="button" class="copy-to-clipboard-btn" data-clipboard-json="' . $escapedJson . '" onclick="copyToClipboard(JSON.parse(this.getAttribute(\'data-clipboard-json\')))">Copy</button>';
+	$html .= '<button type="button" class="copy-to-clipboard-btn" data-clipboard-b64="' . $base64Input . '" onclick="copyToClipboard(decodeBase64(this.getAttribute(\'data-clipboard-b64\')))">Copy</button>';
 
 	return $html;
 }

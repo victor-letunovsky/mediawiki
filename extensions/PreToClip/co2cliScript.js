@@ -1,3 +1,9 @@
+function decodeBase64(base64) {
+    return decodeURIComponent(Array.prototype.map.call(atob(base64), function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+}
+
 function co2cli(cId) {
     var el = document.getElementById(cId);
     if (el) {

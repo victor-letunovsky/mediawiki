@@ -87,9 +87,8 @@ function wfAddClpbTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 		$html .= '<span id="' . $spnid . '">' . $escapedInput . '</span> <button onclick="co2cli(\'' . $spnid . '\')" class="cp2clpb"></button>';
 		$clpbTagIdx += 1;
 	} else {
-		$jsonInput = json_encode( $input );
-		$escapedJson = htmlspecialchars( $jsonInput, ENT_QUOTES, 'UTF-8' );
-		$html .= '<button data-clipboard-json="' . $escapedJson . '" onclick="cp2clpb(JSON.parse(this.getAttribute(\'data-clipboard-json\')))" class="cp2clpb"></button>';
+		$base64Input = base64_encode( $input );
+		$html .= '<button data-clipboard-b64="' . $base64Input . '" onclick="cp2clpb(decodeBase64(this.getAttribute(\'data-clipboard-b64\')))" class="cp2clpb"></button>';
 	}
 	return $html;
 }
