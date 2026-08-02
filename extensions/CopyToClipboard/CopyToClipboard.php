@@ -57,6 +57,8 @@ function wfAddCopyToClipboardTag( $input, array $args, Parser $parser, PPFrame $
 		global $wgScriptPath;
 		$scriptHtml = "<script src='" . $wgScriptPath . "/extensions/PreToClip/co2cliScript.js'></script>";
 		$parser->mOutput->addHeadItem( $scriptHtml, 'co2cli-script' );
+		$styleHtml = "<link rel='stylesheet' href='" . $wgScriptPath . "/extensions/PreToClip/cp2clpb.css'/>";
+		$parser->mOutput->addHeadItem( $styleHtml, 'cp2clpb-style' );
 		$copyToClipboardScriptFirst = false;
 	}
 
@@ -67,7 +69,7 @@ function wfAddCopyToClipboardTag( $input, array $args, Parser $parser, PPFrame $
 		$html .= $escapedInput . ' ';
 	}
 
-	$html .= '<button type="button" class="copy-to-clipboard-btn" data-clipboard-b64="' . $base64Input . '" onclick="copyToClipboard(decodeBase64(this.getAttribute(\'data-clipboard-b64\')))">Copy</button>';
+	$html .= '<button data-clipboard-b64="' . $base64Input . '" onclick="copyToClipboard(decodeBase64(this.getAttribute(\'data-clipboard-b64\')))" class="cp2clpb"></button>';
 
 	return $html;
 }
