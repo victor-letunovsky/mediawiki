@@ -100,23 +100,9 @@ function wfAddClpbTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 	} else {
 		global $clpbTagFirst;
 		if ($clpbTagFirst) {
+			global $co2cliScript;
 			global $clpbStyleFirst;
-			$html .= "<script>function cp2clpb(text) {\n" .
-				"    if (navigator.clipboard && navigator.clipboard.writeText) {\n" .
-				"        navigator.clipboard.writeText(text);\n" .
-				"    } else {\n" .
-				"        var ta = document.createElement('textarea');\n" .
-				"        ta.value = text;\n" .
-				"        document.body.appendChild(ta);\n" .
-				"        ta.select();\n" .
-				"        try {\n" .
-				"            document.execCommand('copy');\n" .
-				"        } catch (err) {\n" .
-				"            console.error('Failed to copy text', err);\n" .
-				"        }\n" .
-				"        document.body.removeChild(ta);\n" .
-				"    }\n" .
-				"}</script>";
+			$html .= $co2cliScript;
 			if ($clpbStyleFirst) {
 		    	global $cp2clpbStyle;
 				$html .= $cp2clpbStyle;
