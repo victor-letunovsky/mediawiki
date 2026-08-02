@@ -65,11 +65,19 @@ function wfAddCopyToClipboardTag( $input, array $args, Parser $parser, PPFrame $
 	$escapedInput = htmlspecialchars( $input, ENT_QUOTES, 'UTF-8' );
 	$base64Input = base64_encode( $input );
 
-	if ( isset( $args['show'] ) && $args['show'] == true ) {
-		$html .= $escapedInput . ' ';
+	if ( isset( $args['show'] ) && $args['show'] ) {
+		global $clippyTagIdx;
+		if ( !isset( $clippyTagIdx ) ) {
+			$clippyTagIdx = 0;
+		}
+		$spnid = 'clippyspnid' . $clippyTagIdx;
+		$escapedInput = htmlspecialchars( $input, ENT_QUOTES, 'UTF-8' );
+		$html .= '<span id="' . $spnid . '">' . $escapedInput . '</span> <button onclick="co2cli(\'' . $spnid . '\')" class="cp2clpb"></button>';
+		$clippyTagIdx += 1;
+	} else {
+		$base64Input = base64_encode( $input );
+		$html .= '<button data-clipboard-b64="' . $base64Input . '" onclick="copyToClipboard(decodeBase64(this.getAttribute(\'data-clipboard-b64\')))" class="cp2clpb"></button>';
 	}
-
-	$html .= '<button data-clipboard-b64="' . $base64Input . '" onclick="copyToClipboard(decodeBase64(this.getAttribute(\'data-clipboard-b64\')))" class="cp2clpb"></button>';
 
 	return $html;
 }
