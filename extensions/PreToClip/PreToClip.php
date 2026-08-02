@@ -39,7 +39,7 @@ class PreToClip {
 		$inhaltende = "";
 		$isPre = strpos($mBodytext, "<pre>") !== false;
 		if ($isPre) {
-			$inhaltende = utf8_decode($mBodytext);
+			$inhaltende = $mBodytext;
 			//preg_match_all("/<(pre[^>]*)>(.*)<\/pre>/siU", $inhaltende, $treffer);
 			preg_match_all("/<(pre)>(.*)<\/pre>/siU", $inhaltende, $treffer);
 			foreach ($treffer[0] as $key => $value) {
@@ -52,7 +52,6 @@ class PreToClip {
 			$out->addHeadItem( 'cp2clpb-style', $cp2clpbStyle );
 		}
 		if ($inhaltende != '') {
-			$inhaltende = utf8_encode($inhaltende);
 			$out->clearHTML();
 			$out->addHTML($inhaltende);
 		}
