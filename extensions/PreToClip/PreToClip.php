@@ -47,14 +47,9 @@ class PreToClip {
 				$text1 .= "<".$treffer[1][$key]." id=\"preid".$key."\">".$treffer[2][$key]."</pre>\n";
 				$inhaltende = str_replace($treffer[0][$key], $text1, $inhaltende);
 			}
-			$text2 = "";
-			global $clpbTagIdxFirst;
-			if ($clpbTagIdxFirst) {
-				global $co2cliScript;
-				$text2 = $co2cliScript;
-				$clpbTagIdxFirst = false;
-			}
-			$inhaltende = $text2 . $inhaltende;
+			global $co2cliScript, $cp2clpbStyle;
+			$out->addHeadItem( 'co2cli-script', $co2cliScript );
+			$out->addHeadItem( 'cp2clpb-style', $cp2clpbStyle );
 		}
 		if ($inhaltende != '') {
 			$inhaltende = utf8_encode($inhaltende);
@@ -76,38 +71,22 @@ function wfClpbInit( Parser $parser ) {
 function wfAddClpbTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 	global $wgClpbImg;
 
+	global $co2cliScript, $cp2clpbStyle;
+	static $clpbScriptFirst = true;
+	if ( $clpbScriptFirst ) {
+		$parser->mOutput->addHeadItem( $co2cliScript, 'co2cli-script' );
+		$parser->mOutput->addHeadItem( $cp2clpbStyle, 'cp2clpb-style' );
+		$clpbScriptFirst = false;
+	}
+
 	$html = '';
 	if (isset($args['show']) && $args['show']) {
 		global $clpbTagIdx;
-		global $clpbTagIdxFirst;
-		if ($clpbTagIdxFirst) {
-			global $co2cliScript;
-			global $clpbStyleFirst;
-			$html .= $co2cliScript;
-			if ($clpbStyleFirst) {
-				global $cp2clpbStyle;
-				$html .= $cp2clpbStyle;
-				$clpbStyleFirst = false;
-			}
-			$clpbTagIdxFirst = false;
-		}
 		$spnid = 'spnid' . $clpbTagIdx;
 		$escapedInput = htmlspecialchars( $input, ENT_QUOTES, 'UTF-8' );
 		$html .= '<span id="' . $spnid . '">' . $escapedInput . '</span> <button onclick="co2cli(\'' . $spnid . '\')" class="cp2clpb"></button>';
 		$clpbTagIdx += 1;
 	} else {
-		global $clpbTagFirst;
-		if ($clpbTagFirst) {
-			global $co2cliScript;
-			global $clpbStyleFirst;
-			$html .= $co2cliScript;
-			if ($clpbStyleFirst) {
-		    	global $cp2clpbStyle;
-				$html .= $cp2clpbStyle;
-				$clpbStyleFirst = false;
-			}
-			$clpbTagFirst = false;
-		}
 		$jsonInput = json_encode( $input );
 		$escapedJson = htmlspecialchars( $jsonInput, ENT_QUOTES, 'UTF-8' );
 		$html .= '<button data-clipboard-json="' . $escapedJson . '" onclick="cp2clpb(JSON.parse(this.getAttribute(\'data-clipboard-json\')))" class="cp2clpb"></button>';
